@@ -7,7 +7,7 @@ def main():
 
     age = None
     while age is None:
-        age_input = input("Quel est votre âge ? ")
+        age_input = input("How old are you? ")
         age = extract_age(age_input)
         if age is not None and age < 18:
             print("You must be over 18 to be eligible for a loan.")
@@ -15,7 +15,7 @@ def main():
 
     hours_per_week = None
     while hours_per_week is None:
-        hours_per_week_input = input("How many hours do you work a week?")
+        hours_per_week_input = input("How many hours do you work a week? ")
         hours_per_week = extract_hours(hours_per_week_input)
         if hours_per_week is not None and hours_per_week <= 18:
             print("If you change your hours from " + str(hours_per_week) + " to 18 your loan would approved.")

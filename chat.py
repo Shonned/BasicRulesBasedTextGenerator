@@ -3,6 +3,7 @@ import spacy
 # Load the model
 nlp = spacy.load("en_core_web_sm")
 
+
 def main():
     print("Welcome to our chatbot for determining loan acceptance!")
 
@@ -22,7 +23,6 @@ def main():
         hours_per_week_input = input("How many hours do you work a week? ")
         hours_per_week = extract_hours(hours_per_week_input)
         if hours_per_week is not None and hours_per_week <= 18:
-
             # Advises the user
             print("If you change your hours from " + str(hours_per_week) + " to 18 your loan would approved.")
 

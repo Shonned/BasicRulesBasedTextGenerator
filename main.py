@@ -1,4 +1,5 @@
 from classes.user import User
+from classes.chat import Chat
 
 
 def main():
@@ -15,10 +16,10 @@ def main():
     }
 
     user = User(**user_data)
-
     user.set_jobs("Web developer")
-    print(user.get_jobs())
 
+    chat = Chat(user)
+    chat.initialize_chatbot()
 
 if __name__ == "__main__":
     main()

@@ -43,10 +43,7 @@ class Advisor(User):
         loan = Loan(client, "10 years", "3.3%", "Pending")
         loan.checking()
         time.sleep(3)
-        if (loan.status == "Approved"):
-            print("Your loan has been approved.")
-        else:
-            print("Your loan has been rejected.")
+        print(loan.get_message())
         print("Thank you for trusting Bank of Aberdeen")
 
     def extract_int_with_nlp(self, input_text):

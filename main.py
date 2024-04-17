@@ -1,25 +1,27 @@
-from classes.user import User
-from classes.chat import Chat
+from models.advisor import Advisor
+from models.bank import Bank
+from models.client import Client
 
 
 def main():
-    user_data = {
-        "name": "Kilian",
-        "lastname": "Peyron",
-        "age": 20,
-        "email": "kilianpeyn@gmail.com",
-        "phone": "0782647212",
-        "address": "100 Hillview Rd",
-        "city": "Peterculter",
-        "state": "Aberdeen",
-        "country": "Scotland"
-    }
+    bank_of_aberdeen = Bank("Bank of Aberdeen", "123 Main Street")
 
-    user = User(**user_data)
-    user.set_jobs("Web developer")
+    advisor1 = Advisor("ADV001", "John Doe", "456 Oak Avenue", "555-1234", "Investment")
+    advisor2 = Advisor("ADV002", "Jane Smith", "789 Elm Street", "555-5678", "Mortgage")
+    bank_of_aberdeen.add_advisor(advisor1)
+    bank_of_aberdeen.add_advisor(advisor2)
 
-    chat = Chat(user)
-    chat.initialize_chatbot()
+    client1 = Client("CLI001", "Kilian PEYRON", "100 Hillview Rd, AB14 0UB Peterculter", "+33782647212", "employee")
+    bank_of_aberdeen.add_client(client1)
+
+    # Notify the client
+    bank_of_aberdeen.new_arrival(client1)
+    advisor1.add_client(client1)
+
+    advisor1.ask_for_annual_income(client1)
+    advisor1.ask_for_loan_amount(client1)
+    advisor1.create_loan(client1)
+
 
 if __name__ == "__main__":
     main()
